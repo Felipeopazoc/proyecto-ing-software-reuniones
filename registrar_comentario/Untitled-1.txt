@@ -1,0 +1,82 @@
+ while($reunion = $resultado->fetch_row()){
+                        //$fecha = verfecha($reunion[3]);
+                        echo "<div class='box'>";
+                        echo "<h1>$reunion[1]</h1>";
+                        echo "<h1>Tema: $reunion[2]</h1>";
+                        echo "<h4>Fecha: $reunion[3] </h4>";
+                        echo "<h4>Hora: $reunion[4]</h4>";
+                        
+                        echo "<form class='' action='recibir_datos.php' method='post'>";
+                        echo "<h4>Deja tu respuesta: </h4>";
+                        echo "<input class='disabled' type='text' name='rut' value='$rut'>";
+                        echo "<input class='disabled' type='number' name='cod_reunion' value=$reunion[0]>";
+                        echo "<div class='col-7'>";
+                        echo "<label>Tema:</label>";
+                        echo "<input class='form-control' type='text' placeholder='Tema Comentario: ' name='tema'>";
+                        echo "</div>";
+    
+                        echo "<div class='col-10'>";
+                        echo "<label>Descripción:</label>";
+                        echo "<textarea class='form-control' type='text' placeholder='Comentario: ' name='descripcion'></textarea>";
+                        echo "</div>";
+                        echo "<div class='container-button'>";
+                        echo "<button class=' btn btn-primary' type='submit' name='submit'>Registrar Comentario</button>";
+                        echo "</div>";
+                        echo "</form>";
+
+                        
+                        $sql = "SELECT * FROM COMENTARIO C WHERE C.REU_COD = $reunion[0] AND C.RUT='$rut' ";
+    
+                        $resultado2 = mysqli_query($conn,$sql);
+    
+                        while ($comentario = $resultado2->fetch_row()){
+                            echo "<div class='box-comentario m-auto'>";
+                            echo "<h3>Tema: $comentario[2] </h3>";
+                            echo "<p> Descripcion: $comentario[1]</p>";
+                            echo "<h3> Fecha: ".verfecha($comentario[3])." </h3>";
+                            echo "<h3>Hora: $comentario[4]</h3>";
+                            echo "<div class='container-button2'>";
+                            echo "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#myModal'> Modificar </button>";
+                            echo "<a class='m-2 btn btn-danger' href='eliminar.php?id=$comentario[0]'>Eliminar<a/>";
+                            echo "</div>";
+                            echo "<div class='modal' id='myModal'>";
+                            echo "<div class='modal-dialog'>";
+                            echo "<div class='modal-content'>";
+                            echo "<div class='modal-header'>";
+                            echo "<h2 class='modal-title'> Actualizar información</h2>";
+                            echo "<button type='button' class='btn-close' data-bs-dismiss='modal'></button>";
+                            echo "</div>";
+                            echo "<div class='modal-body'>";
+                            
+                            echo "<form class='text-black' method='post' action='modificar.php'>";
+        
+                            echo "<input class='form-control' type='hidden' name='id_comentario' value=$comentario[0]  >";
+                          
+                            echo "<div class='col-5'>";
+                            echo "<label>Tema: </label>";
+                            echo "<input class='form-control' type='text' name='tema' value=$comentario[2]>";
+                            echo "</div>";
+
+                            echo "<div class='col-5'>";
+                            echo "<label>Comentario:</label>";
+                            echo "<textarea class='form-control' name='comentario' > $comentario[1] </textarea>";
+                            echo "</div>";
+                            
+                            echo "<div>";
+                            echo "<button type='submit' class='btn btn-success' name='submit'>Actualizar Información</button>";
+                            echo "</div>";
+
+                            echo "</form>";
+
+                            echo "</div>";
+                            echo "<div class='modal-footer'>";
+                            echo "<button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Cancelar</button>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                        }
+                   
+                        echo "</div>";
+                    }

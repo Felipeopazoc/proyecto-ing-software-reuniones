@@ -1,0 +1,10 @@
+.form{
+    width: 50%;
+    border: 1px solid white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    border-radius: 20px;
+}
+

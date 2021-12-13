@@ -1,0 +1,4 @@
+[12-Dec-2021 19:05:48 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/felipeop/public_html/home_vecino/index.php:92
+Stack trace:
+#0 {main}
+  thrown in /home/felipeop/public_html/home_vecino/index.php on line 92

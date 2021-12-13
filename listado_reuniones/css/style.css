@@ -1,0 +1,52 @@
+.estilos-textos{
+    font-size: 20px;
+    color: white;
+}
+.bg{
+    background-color: #141A32;
+}
+.links{
+    display: block;
+    text-decoration: none;
+    color: white;
+    line-height: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+
+}
+
+.ul> li > a:hover{
+    transition: all 300ms;
+    border-radius: 10px;
+    color: white;
+}
+.boxs{
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px auto;
+    min-height: 600px;
+    background-color: #080F28;
+}
+
+.box{
+    width: 50%;
+    background-color: rgb(176, 197, 197);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    margin-top: 20px ;
+    padding-bottom: 30px;
+    border-radius: 20px;
+}
+.box-formulario-buscador{
+    width: 70%;
+    background-color: rgb(209, 120, 4);
+}
