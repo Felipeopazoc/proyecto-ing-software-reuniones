@@ -34,13 +34,10 @@ session_start();
                             <a class="links" href="#">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="links" href="../listado_reuniones/index.php">Reuniones</a>
+                            <a class="links" href="../reuniones/index.php">Agendar Reuniones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="links" href="../registrar_comentario/index.php">Comentar Reuniones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="links" href="../listado_reuniones/index.php">Actas</a>
+                            <a class="links" href="../home_directiva/buscador_actas.php">Registrar Actas</a>
                         </li>
                     </ul>
                 </div>

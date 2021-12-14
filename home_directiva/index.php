@@ -32,7 +32,7 @@ session_start();
                 <a class="links" href="../reuniones/index.php">Agendar Reunión</a>
               </li>
               <li class="nav-item">
-                <a class="links" href="javascript:void(0)">Registrar Acta</a>
+                <a class="links" href="./buscador_actas.php">Registrar Acta</a>
               </li>
             </ul>
           </div>

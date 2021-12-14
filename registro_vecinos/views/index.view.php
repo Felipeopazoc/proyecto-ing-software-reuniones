@@ -16,7 +16,7 @@
 </head>
 <body >
     
-    <div class="w-100" class="color-claro" style="background-color: #141A32; min-height:850px;">
+    <div class="w-100" class="color-claro" style="background-color: #141A32; ">
         <div class="header">
             <div class="mensaje">
                 <h1>Plataforma reuniones</h1>
@@ -27,7 +27,7 @@
         </div>
 
         <h1 class="text-center text-white mt-4">Formulario de Registro</h1>
-        <form class="form border" style="border-radius:10px"
+        <form class="form border mb-3" style="border-radius:10px; height:100vh;"
             action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
            
             <div class="mb-3 mt-2 col-6">

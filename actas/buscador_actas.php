@@ -16,7 +16,7 @@ session_start();
     </script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="../tailwind/tailwind.output.css">
+    <link rel="stylesheet" href="tailwind/tailwind.output.css">
 
 
 </head>

@@ -5,3 +5,37 @@ Stack trace:
 #0 /home/felipeop/public_html/registro_vecinos/index.php(8): require()
 #1 {main}
   thrown in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 78
+[13-Dec-2021 09:52:41 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 09:52:41 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 09:52:41 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/felipeop/public_html/registro_vecinos/views/index.view.php:78
+Stack trace:
+#0 /home/felipeop/public_html/registro_vecinos/index.php(8): require()
+#1 {main}
+  thrown in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 78
+[13-Dec-2021 16:13:39 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:13:39 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:13:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function fetch_row() on bool in /home/felipeop/public_html/registro_vecinos/views/index.view.php:78
+Stack trace:
+#0 /home/felipeop/public_html/registro_vecinos/index.php(8): require()
+#1 {main}
+  thrown in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 78
+[13-Dec-2021 16:16:46 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:16:46 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:17:21 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:17:21 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:19:06 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:19:06 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:20:39 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:20:39 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:20:51 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:20:51 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:25:00 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:25:00 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:29:19 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:29:19 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:29:36 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:29:36 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:30:30 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:30:30 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:31:07 UTC] PHP Warning:  include_once(./conexion_bd/conexion.php): failed to open stream: No such file or directory in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
+[13-Dec-2021 16:31:07 UTC] PHP Warning:  include_once(): Failed opening './conexion_bd/conexion.php' for inclusion (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/felipeop/public_html/registro_vecinos/views/index.view.php on line 75
