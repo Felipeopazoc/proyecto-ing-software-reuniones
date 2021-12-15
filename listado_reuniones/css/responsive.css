@@ -17,3 +17,79 @@
         width: 100%;
     }
 }
+
+
+
+@media(max-width:882px){
+    .nav>ul>li>a{
+        font-size: 15px;
+    }
+}
+@media(max-width:768px){
+    .links{
+        font-size: 10px;
+    }
+    .contenedor-form{
+        flex-direction: column;
+        width: 85%;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto;
+    }
+    .submit{
+        margin-top: 20px;
+        width: 140px;
+    }
+    .contenedor-form > label{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .contenedor-form > input{
+        margin-left: 0px;
+    }
+}
+@media (max-width:575px) {
+    .ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+        width: 100%;
+    }
+}
+@media (max-width:426px){
+    .contenedor-padre{
+        width: 100%;
+    }
+    .cajita-comentarios{
+        width: 100%;
+        padding: 10px;
+    }
+    .contenedor-reuniones{
+        padding: 15px;
+        
+    }
+    .alerta{
+        width: 75%;
+    }
+    .btn-sesion{
+        width: 60%;
+       
+        display: flex;
+        justify-content: center;
+        margin: 0px auto;
+       
+    }
+
+    
+    .ul> li > a:hover{
+        transition: all 300ms;
+        background-color: rgb(64, 161, 85);
+        border-radius: 10px;
+        color: white;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: 20px;
+    }
+}

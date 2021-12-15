@@ -10,10 +10,10 @@
         $hora = $_POST['hora'];
         $lugar = $_POST['lugar'];
         $estado = $_POST['estado'];
+        $acta = $_POST['acta'];
 
-        $sql = "insert into reunion values (null,'$titulo', '$tema', '$fecha', '$hora', '$lugar', $estado,3)";
+        $sql = "insert into reunion values (NULL,'$titulo', '$tema', '$fecha', '$hora', '$lugar', '$estado', '$acta')";
         $conn->query($sql);
-        $result="<div class='alert alert-success'>Thank You! I will be in touch</div>";
         header('Location: index.php');
     }
 ?>

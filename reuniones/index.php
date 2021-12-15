@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="es">
   <head>
@@ -105,9 +104,7 @@
             <?php 
                 // Realizamos la consulta, y obtenemos los datos.
                 $sql = "select * from reunion r, estados e where r.id_estado = e.id_estado order by reu_cod desc";
-                
-
-                if($resultado = $conn->query($sql)){
+                $resultado = $conn->query($sql);
                 while($row = $resultado->fetch_row()){
                   echo "<div style='background-color: #141A32; color:white;' class='container-md p-3 mb-3 rounded'>";
                     echo "<div class='d-flex justify-content-between'>";
@@ -126,11 +123,12 @@
                       echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$fecha</p>";
                       if ($row[8] == 4){
                         echo "<img class='mb-1' src='images/activo.png' width='28px' height='25px'>";
-                        echo "<p class='text-secondary mx-1 mb-1'>$row[9]</p>";
+                        echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$row[9]</p>";
                       }else{
                         echo "<img class='mb-1' src='images/inactivo.png' width='28px' height='25px'>";
-                        echo "<p class='text-secondary mx-1 mb-1'>$row[9]</p>";
+                        echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$row[9]</p>";
                       }
+                      echo "<a style='text-decoration:none' href='../actas/views/informacion-acta.php?codigo_acta=$row[7]' target='_blank' class='text-success mx-1 mb-1'>ver acta</a>";
                     echo "<section>";
                   echo "</div>";
 
@@ -161,21 +159,33 @@
                               echo "<div class='form-group col-4 w-100 py-2'>";
                                 echo "<div class='form-group'>";
                                   echo "<div class='w-100 mx-0 input-group col-xl-12 align-self-center row justify-content-start'>";
-                                    echo "<div style='width: 33.33%;' class='align-items-center align-self-center ps-0'>";
+                                    echo "<div style='width: 25%;' class='align-items-center align-self-center ps-0'>";
                                       echo "<label>Fecha</label>";
                                       $hoy = date("Y-m-d");
                                       echo "<input id='fecha' type='date' name='fecha' class='w-100 mb-2 form-control' min=".$hoy." value='$row[3]'>";
                                     echo "</div>";
-                                    echo "<div style='width: 33.33%;' class='align-items-center align-self-center px-0'>";
+                                    echo "<div style='width: 25%;' class='align-items-center align-self-center px-0'>";
                                       echo "<label>Hora</label>";
                                       echo "<input id='hora' type='time' name='hora' class='w-100 mb-2 form-control' value='$row[4]'>";
                                     echo "</div>";
-                                    echo "<div style='width: 33.33%;' class='align-items-center align-self-center pe-0 mb-2'>";
+                                    echo "<div style='width: 25%;' class='align-items-center align-self-center pe-0 mb-2'>";
                                       echo "<label>Estado</label>";
                                       echo "<select class='form-select' aria-label='Default select example' name='estado'>";
                                         echo "<option value='4'>por realizar</option>";
-                                        echo "<option value='5'>realizada</option>";
+                                        echo "<option value='5' selected>realizada</option>";
                                       echo "</select>";
+                                    echo "</div>";
+                                    echo "<div style='width: 25%;' class='align-items-center align-self-center pe-0 mb-2'>";
+                                        echo "<label>Acta</label>";
+                                        echo "<select class='form-select' aria-label='Default select example' name='acta'>";
+                                        echo "<option value='3' selected>Sin acta</option>";
+                                          $res = $conn->query("select * from acta");
+                                          while($row = $res->fetch_row()){
+                                              if($row[0] != 3){
+                                                echo "<option value='$row[0]'>$row[1]</option>";
+                                              }
+                                          }
+                                        echo "</select>";
                                     echo "</div>";
                                   echo "</div>";
                                 echo "</div>";
@@ -188,12 +198,7 @@
                       echo "</div>";
                     echo "</div>";
                   echo "</div>";
-                  
-                }
-                mysqli_free_result($resultado);
-                mysqli_close($conn);
               }
-                
             ?>
         </div>
 
@@ -225,20 +230,34 @@
                   <div class="form-group col-4 w-100 py-2 mx-0">
                     <div class="form-group w-100 mx-0">
                       <div class="w-100 mx-0 input-group col-xl-12 align-self-center row justify-content-start">
-                        <div style="width: 33.33%;" class="align-items-center align-self-center ps-0">
+                        <div style="width: 25%;" class="align-items-center align-self-center ps-0">
                           <label>Fecha</label>
                           <input id="fecha" type="date" name="fecha" class="w-100 mb-2 form-control" min=<?php $hoy=date("Y-m-d"); echo $hoy;?> required>
                         </div>
-                        <div style="width: 33.33%;" class="align-items-center align-self-center px-0">
+                        <div style="width: 25%;" class="align-items-center align-self-center px-0">
                           <label>Hora</label>
                           <input id="hora" type="time" name="hora" class="w-100 mb-2 form-control" required min="08:00" max="23:00">
                         </div>
-                        <div style="width: 33.33%;" class="align-items-center align-self-center pe-0 mb-2">
+                        <div style="width: 25%;" class="align-items-center align-self-center pe-0 mb-2">
                           <label>Estado</label>
                           <select class="form-select" aria-label="Default select example" name="estado">
                             <option value="4">por realizar</option>
                             <option value="5">realizada</option>
                           </select>
+                        </div>
+                        <div style="width: 25%;" class="align-items-center align-self-center pe-0 mb-2">
+                            <label>Acta</label>
+                            <select class="form-select" aria-label="Default select example" name="acta">
+                            <option value='3' selected>Sin acta</option>
+                            <?php
+                              $res = $conn->query("select * from acta");
+                              while($row = $res->fetch_row()){
+                                  if($row[0] != 3){
+                                    echo "<option value='$row[0]'>$row[1]</option>";
+                                  }
+                              }
+                            ?>
+                            </select>
                         </div>
                       </div>
                     </div>
