@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
-<body >
+<body class="height:100vh"style = "background-color: #141A32;">
     
-    <div class="w-100" class="color-claro" style="background-color: #141A32; ">
+    <div class="w-100" class="color-claro" style="background-color: #141A32; min-height:850px;">
         <div class="header">
             <div class="mensaje">
                 <h1>Plataforma reuniones</h1>
@@ -27,26 +27,25 @@
         </div>
 
         <h1 class="text-center text-white mt-4">Formulario de Registro</h1>
-        <form class="form border mb-3" style="border-radius:10px; height:100vh;"
-            action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
+        <form class="form border mb-4" style="border-radius:10px" action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
            
             <div class="mb-3 mt-2 col-6">
                 <label for="rut" class="form-label">Rut</label>
-                <input type="text" class="form-control" placeholder="Formato(xx.xxx.xxx-x)" name="rut" required>
+                <input type="text" class="form-control" placeholder="Formato(sin puntos ni guión)" minlength=8 maxlength=9 name="rut" min pattern="(?=.*\d){8,}" title="Por favor usa el formato indicado" required>
             </div>
             <div class="mb-3 mt-2 col-6">
                 <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" placeholder="Ingresar Nombre" name="nombre" required>
+                <input type="text" class="form-control" placeholder="Ingresar Nombre" title="Por favor no ingresar numeros" name="nombre" required  pattern="[a-zA-Z ]{2,40}">
             </div>
 
             <div class="mb-3 mt-2 col-6">
                 <label for="apellido_p" class="form-label">Apellido Paterno</label>
-                <input type="text" class="form-control" placeholder="Ingresar Apellido" name="apellido_paterno" required>
+                <input type="text" class="form-control" placeholder="Ingresar Apellido" title="Por favor no ingresar numeros" name="apellido_paterno" pattern="[a-zA-Z ]{2,40}" required>
             </div>
 
             <div class="mb-3 mt-2 col-6">
                 <label for="apellido_m" class="form-label">Apellido Materno</label>
-                <input type="text" class="form-control" placeholder="Ingresar Apellido" name="apellido_materno" required>
+                <input type="text" class="form-control" pattern="[a-zA-Z ]{2,40}" title="Por favor no ingresar numeros" placeholder="Ingresar Apellido" name="apellido_materno" required>
             </div>
             <div class="mb-3 mt-2 col-6">
                 <label for="direccion" class="form-label">Dirección</label>
@@ -65,7 +64,7 @@
 
             <div class="mb-3 mt-2 col-6">
                 <label for="pwd" class="form-label">Contraseña:</label>
-                <input type="password" class="form-control" placeholder="Ingresar Contraseña" name="password" required>
+                <input type="password" class="form-control" placeholder="Ingresar Contraseña" minlength=8 maxlength=15 name="password"  required>
             </div>
             <div class="mb-3 mt-2 col-12">
                 <label for="pwd" class="form-label">Comunidad:</label>
@@ -73,7 +72,7 @@
                     <option value="0">Seleccione la Comunidad</option>
                     <?php 
                         include_once("./conexion_bd/conexion.php");
-                        $sql = "SELECT * FROM COMUNIDAD";
+                        $sql = "select * from comunidad";
                         $resultado = mysqli_query($conn,$sql);
                         while($comunidad = $resultado->fetch_row()){
                             echo "<option class='option' value='$comunidad[0]'>$comunidad[1]</option>";

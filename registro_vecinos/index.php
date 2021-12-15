@@ -24,22 +24,31 @@ if(isset($_POST["submit"])){
     $correo = trim($correo);
     $password = trim($password);
     $id_comunidad = $_POST["id_comunidad"];
-    echo $id_comunidad;
     $sql3="";
     if($id_comunidad==0){
         $sql = "insert into vecino values('$rut','$nombre','$apellido_p','$apellido_m','$direccion','$telefono','$correo','$password',1)";
         $conn -> query($sql);
+        ?>
+            <p class="w-50 m-auto mt-3 mb-3 text-center alert alert-success">Usuario registrado correctamente</p>
+        <?php
+ 
+        
     }else{
         $sql2 = "insert into vecino values('$rut','$nombre','$apellido_p','$apellido_m','$direccion','$telefono','$correo','$password',1)";
     
-        $conn ->query($sql2);
+        $conn -> query($sql2);
         $fechaActual = date("y-m-d",time());
         $sql3 = "insert into pertenece values($id_comunidad,1,'$rut',$fechaActual','$fechaActual')";
         $conn-> query($sql3);
+        
+        ?>
+            <p class="w-50 m-auto mt-3 mb-3 text-center alert alert-success">Usuario registrado correctamente</p>
+        <?php
+       
     }
     
     ?>
-      <!--  <p class="alert alert-success text-center w-50 m-auto mb-3">Registro insertado Correctamente</p>-->
+    
 
     <?php
     
