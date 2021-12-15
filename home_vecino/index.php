@@ -42,7 +42,7 @@ session_start();
                         </li>
                     </ul>
                 </div>
-                <div class="btn-sesion">
+                <div class="contenedor-btn">
                     <a class="btn btn-danger mr-3" href="../login/backend/cerrar.php">Cerrar Sesión</a>
                 </div>
             </div>

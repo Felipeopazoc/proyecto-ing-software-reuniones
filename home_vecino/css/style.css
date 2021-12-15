@@ -40,7 +40,7 @@
     color:white;
 }
 .contenedor-btn{
-    width: 80%;
+    width: 38%;
     margin: 0px auto;
     display: flex;
     justify-content: center;
@@ -97,4 +97,35 @@
 .icon {
     margin-left: 10px;
     margin-right: 10px;
+}
+.caja{
+    
+    margin: 0px auto;
+}
+.h1{
+    font-size: 30px;
+}
+.h2{
+    font-size: 24px;
+}
+.contenedor-reuniones:last-child{
+    margin-bottom: 10px;
+}
+.fuentes{
+    font-size: 20px;
+}
+
+.link-comentar{
+    width: 250px;
+    
+    
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    display: block;
+    line-height: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    
 }
