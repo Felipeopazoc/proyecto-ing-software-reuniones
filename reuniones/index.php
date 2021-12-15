@@ -80,7 +80,7 @@
                 <a class="links" href="#">Agendar Reunión</a>
               </li>
               <li class="nav-item">
-                <a class="links" href="../home_directiva/buscador_actas.php">Registrar Acta</a>
+                <a class="links" href="javascript:void(0)">Registrar Acta</a>
               </li>
             </ul>
           </div>
@@ -114,21 +114,29 @@
                     echo "</div>";
                     echo "<p><strong>Temas a tratar: </strong>$row[2]</p>";
                     echo "<p><strong>Ubicación: </strong>$row[5]</p>";
-                    echo "<section class='d-flex align-items-center'>";
-                      echo "<img class='mb-1' src='images/watch.svg' width='25px' height='25px'>";
-                      $hora = date('H:i', strtotime($row[4]));
-                      echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$hora</p>";
-                      echo "<img class='mb-1' src='images/calendar.svg' width='25px' height='25px'>";
-                      $fecha = date('d-m-Y',strtotime($row[3]));
-                      echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$fecha</p>";
-                      if ($row[8] == 4){
-                        echo "<img class='mb-1' src='images/activo.png' width='28px' height='25px'>";
-                        echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$row[9]</p>";
-                      }else{
-                        echo "<img class='mb-1' src='images/inactivo.png' width='28px' height='25px'>";
-                        echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$row[9]</p>";
-                      }
-                      echo "<a style='text-decoration:none' href='../actas/views/informacion-acta.php?codigo_acta=$row[7]' target='_blank' class='text-success mx-1 mb-1'>ver acta</a>";
+                    echo "<section class='d-flex flex-wrap align-items-center container-fluid'>";
+                      echo "<div class='d-flex'>";
+                        echo "<img class='mb-1' src='images/watch.svg' width='25px' height='25px'>";
+                        $hora = date('H:i', strtotime($row[4]));
+                        echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$hora</p>";
+                      echo "</div>";
+                      echo "<div class='d-flex'>";
+                        echo "<img class='mb-1' src='images/calendar.svg' width='25px' height='25px'>";
+                        $fecha = date('d-m-Y',strtotime($row[3]));
+                        echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$fecha</p>";
+                      echo "</div>";
+                      echo "<div class='d-flex'>";
+                        if ($row[8] == 4){
+                          echo "<img class='mb-1' src='images/activo.png' width='28px' height='25px'>";
+                          echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$row[9]</p>";
+                        }else{
+                          echo "<img class='mb-1' src='images/inactivo.png' width='28px' height='25px'>";
+                          echo "<p class='text-secondary mx-1 mb-1 pe-2 border-end border-secondary'>$row[9]</p>";
+                        }
+                      echo "</div>";
+                      echo "<div class='d-flex'>";
+                        echo "<a style='text-decoration:none' href='../actas/views/informacion-acta.php?codigo_acta=$row[7]' target='_blank' class='text-success mx-1 mb-1'>ver acta</a>";
+                      echo "</div>";
                     echo "<section>";
                   echo "</div>";
 
