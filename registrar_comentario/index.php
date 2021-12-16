@@ -21,11 +21,14 @@ session_start();
 
 <body>
     <div class="w-100 container-padre color-oscuro">
+        <!--Inicio barra de navegacion-->
         <nav class="navbar navbar-expand-sm navbar-dark  bg p-3">
             <div class="container-fluid">
+                <!--Boton menú hamburguesa-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!--Enlaces de la barra de navegación-->
                 <div class="collapse navbar-collapse nav " id="mynavbar">
                     <ul class="navbar-nav me-auto estilos-textos ul">
                         <li class="nav-item">
@@ -42,27 +45,36 @@ session_start();
                 </div>
             </div>
         </nav>
+        <!--Fin de la barra de navegacion-->
+
         <h1 class="h1 text-center text-white mt-2">Mis comentarios en las reuniones</h1>
 
         <div class="w-100 m-auto boxs">
             <?php
-            
+            //Función para formatear fecha extraida desde la base de datos
             function verfecha($vfecha){                 
                     $fch=explode("-",$vfecha);
                     $tfecha=$fch[2]."-".$fch[1]."-".$fch[0];
                     return $tfecha;
              }
                 $sql = "select * from reunion ";
+                //Guarda el objeto extraido desde la base de datos
                 $resultado = mysqli_query($conn,$sql);
+
                 $rut = $_SESSION["rut"];
+                //Manda verdadero cuando encuentra resultados
                 $filas = mysqli_num_rows($resultado);
                 $contador=0;
+                foreach($conn->query($sql) as $row)
+
                 if($filas){
+                    //Se procesa el objeto
                     while($reunion = $resultado->fetch_row()){
                         $fecha = $reunion[3];
                         $fecha = verfecha($fecha);
                         ?>
             <div class="box">
+                <!--Se crea un contenedor para mostrar reuniones-->
                 <h1><?php echo $reunion[1];?></h1>
                 <h1>Tema: <?php echo $reunion[2];?></h1>
                 <h4><svg xmlns="http://www.w3.org/2000/svg" class="icono-calendar" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -71,8 +83,9 @@ session_start();
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg> <?php echo $reunion[4];?></h4>
                 <h4 style="margin-left:0px;">Deja tu respuesta: </h4>
+
+                <!--Formulario par registrar un comentario-->
                 <form action="recibir_datos.php" method="POST">
-                    
                     <input type="text" class="disabled" name="rut" value='<?php echo $rut?>'>
                     <input type="number" class="disabled" name="cod_reunion" value=<?php echo $reunion[0]?>>
                     <div class="col-7">

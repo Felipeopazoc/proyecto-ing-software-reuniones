@@ -73,7 +73,7 @@ session_start();
                   $filas = mysqli_num_rows($resultado);
                   if($filas){
                      ?>
-                     <p class="alert alert-success text-center w-50 m-auto">Se han encontrado resultados</p>
+                     <p class="alert alert-success text-center w-50 m-auto mt-3">Se han encontrado resultados</p>
                      <?php
                      echo "<div class='caja'>";
                      echo "<h1 class='text-center  text-white'>Resultados de búsqueda</h1>";
