@@ -68,7 +68,7 @@ session_start();
                   $desde = $_POST["desde"];
                   $hasta = $_POST["hasta"];
                   
-                  $sql = "SELECT * FROM ACTA WHERE TEMA LIKE '%$tema%' AND FECHA BETWEEN '$desde' AND '$hasta'";
+                  $sql = "select * from acta where tema like '%$tema%' and fecha between '$desde' and '$hasta'";
                   $resultado = mysqli_query($conn,$sql);
                   $filas = mysqli_num_rows($resultado);
                   if($filas){

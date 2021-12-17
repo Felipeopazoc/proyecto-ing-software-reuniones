@@ -24,12 +24,12 @@ if (isset($_POST["submit"])) {
     echo $estado;
     echo $codigo_acta;
 
-    $sql = "INSERT INTO acta VALUES(NULL,'$tema','$reu_fecha','$hora_inicio','$hora_termino','$descripcion', $estado)";
+    $sql = "insert into acta values(null,'$tema','$reu_fecha','$hora_inicio','$hora_termino','$descripcion', $estado)";
     mysqli_query($conn, $sql);
 
 
     $id_acta_nueva = mysqli_insert_id($conn);
-    $sql_update_reunion = "UPDATE reunion SET codigo_acta = $id_acta_nueva WHERE reu_cod = $reu_cod";
+    $sql_update_reunion = "update reunion set codigo_acta = $id_acta_nueva where reu_cod = $reu_cod";
     mysqli_query($conn, $sql_update_reunion);
     echo ("Envio exitoso");
     echo ("Prueba");
