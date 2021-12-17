@@ -29,7 +29,7 @@ session_start();
                 <div class="collapse navbar-collapse nav " id="mynavbar">
                     <ul class="navbar-nav me-auto estilos-textos ul">
                         <li class="nav-item">
-                            <a class="links" href="#">Inicio</a>
+                            <a class="links" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="links" href="../listado_reuniones/index.php">Reuniones</a>

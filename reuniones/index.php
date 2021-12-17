@@ -80,7 +80,7 @@
                 <a class="links" href="#">Agendar Reunión</a>
               </li>
               <li class="nav-item">
-                <a class="links" href="javascript:void(0)">Registrar Acta</a>
+                <a class="links" href="../home_directiva/buscador_actas.php">Registrar Acta</a>
               </li>
             </ul>
           </div>
