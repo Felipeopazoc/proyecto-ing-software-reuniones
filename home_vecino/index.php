@@ -47,18 +47,22 @@ session_start();
                 </div>
             </div>
         </nav>
-        <?php include_once("../conexion_bd/conexion.php")?>
+    
+        <?php 
+            include_once("../conexion_bd/conexion.php");
+            $hoy = date("Y-m-d");
+        ?>
         <div class="w-100 color-oscuro" style="min-height:500px">
             <h1 class="text-white text-center">Buscador de Reuniones</h1>
             <form class="form" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>">
                 <div class="contenedor-form">
                     
-                    <label class="w-25" for="tema">Tema: </label>
-                    <input class="form-control h-25" placeholder="Ingrese tema: " type="text" name="tema">
+                    <label class="w-25" for="tema">Título: </label>
+                    <input class="form-control h-25" placeholder="Ingrese título: " type="text" name="tema">
                     <label class="" for="fecha">Desde: </label>
-                    <input class="form-control  h-25 " type="date" name="desde">
+                    <input class="form-control  h-25 " type="date" max="<?php echo $hoy; ?>" name="desde" required>
                     <label class="" for="fecha">Hasta: </label>
-                    <input class="form-control h-25 " type="date" name="hasta">
+                    <input class="form-control h-25" max="<?php echo $hoy ?>" value="<?php echo $hoy;?>" type="date" name="hasta">
                     <button type="submit" name="submit" class="ms-2 submit btn btn-primary">Buscar</button>
                 </div>
             </form>
@@ -76,14 +80,14 @@ session_start();
                   $desde = $_POST["desde"];
                   $hasta = $_POST["hasta"];
                   
-                  $sql = "select * from reunion where reu_tema like '%$tema%' and reu_fecha between '$desde' and '$hasta'";
+                  $sql = "select * from reunion where reu_titulo like '%$tema%' and reu_fecha between '$desde' and '$hasta' order by reu_fecha desc";
                   $resultado = mysqli_query($conn,$sql);
                   $filas = mysqli_num_rows($resultado);
                   if($filas){
                      ?>
                      <p class="alert alert-success text-center w-50 mt-3 m-auto">Se han encontrado resultados</p>
                      <?php
-                     echo "<div class='w-75 m-auto'>";
+                     echo "<div class='w-75 m-auto d-flex flex-column align-items-center'>";
                      echo "<h1 class='text-center mt-2 text-white'>Resultados de búsqueda</h1>";
                      $contador2=0;
                      while($reunion = $resultado->fetch_row()){
@@ -94,7 +98,7 @@ session_start();
                         $fecha = $reunion[3];
                         $fecha = verfecha($fecha);
                         echo "<h4><svg xmlns='http://www.w3.org/2000/svg' class='icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'> <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' /><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z' /></svg>$reunion[5]</h4>";
-                        echo "<h4 class='h4'><svg xmlns='http://www.w3.org/2000/svg' class='icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'> <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' /></svg> $reunion[3]</h4>";
+                        echo "<h4 class='h4'><svg xmlns='http://www.w3.org/2000/svg' class='icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'> <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' /></svg> $fecha</h4>";
                         echo "<h5><svg xmlns='http://www.w3.org/2000/svg' class='icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'> <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' /></svg> $reunion[4] </h5>";
                         echo "<div class='contenedor-btn'>";
                         echo "<button data-bs-toggle='collapse' class='mt-3 btn btn-primary' data-bs-target='#demo$contador2'>Desplegar Comentarios</button>";
@@ -110,6 +114,7 @@ session_start();
                             echo "</div>";
                         }
                         echo "</div>";
+                        echo "<hr style='background-color:white; height:5px'>";
                         $contador2++;
                      }
                      echo "</div>";

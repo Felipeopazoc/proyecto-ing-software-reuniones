@@ -20,6 +20,7 @@ session_start();
 </head>
 
 <body>
+    <?php $hoy = date("Y-m-d");?>
     <div class="w-100 color-oscuro" style="height:100vh;">
         <nav class="navbar navbar-expand-sm navbar-dark bg p-3 color-claro">
             <div class="container-fluid">
@@ -38,7 +39,7 @@ session_start();
                             <a class="link-comentar" href="../registrar_comentario/index.php">Comentar Reuniones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="links" href="../listado_reuniones/index.php">Actas</a>
+                            <a class="links" href="#">Actas</a>
                         </li>
                     </ul>
                 </div>
@@ -55,9 +56,9 @@ session_start();
                     <label class="ms-1 w-25" for="tema">Tema: </label>
                     <input class="form-control h-25 " placeholder="Ingrese tema: " type="text" name="tema">
                     <label class="ms-2" for="fecha">Desde: </label>
-                    <input class="form-control  h-25 " type="date" name="desde">
+                    <input class="form-control  h-25 " type="date" name="desde"  max="<?php echo $hoy?>" required>
                     <label class="ms-2" for="fecha">Hasta: </label>
-                    <input class="form-control h-25 " type="date" name="hasta">
+                    <input class="form-control h-25 " type="date" name="hasta" value="<?php echo $hoy?>" max="<?php echo $hoy?>">
                     <button type="submit" name="submit" class="ms-2 btn btn-primary">Buscar</button>
                 </div>
             </form>
@@ -67,7 +68,7 @@ session_start();
                   $tema = $_POST["tema"];
                   $desde = $_POST["desde"];
                   $hasta = $_POST["hasta"];
-                  
+               
                   $sql = "select * from acta where tema like '%$tema%' or fecha between '$desde' and '$hasta' order by fecha desc";
                   $resultado = mysqli_query($conn,$sql);
                   $filas = mysqli_num_rows($resultado);
@@ -77,7 +78,7 @@ session_start();
                      <?php
                      echo "<div class='caja'>";
                      echo "<h1 class='text-center  text-white'>Resultados de búsqueda</h1>";
-                     $contador2=0;
+                   
                      while($acta = $resultado->fetch_row()){
                 
                         echo "<div class='contenedor-reuniones m-auto mt-3 text-white'>";
@@ -100,8 +101,28 @@ session_start();
                }
 
                ?>
+                <div class="w-75 bg-primary m-auto mt-4">
+                    <?php
+                        $sql = "select * from acta";
+                        $resultado = mysqli_query($conn,$sql);
+                        $filas = mysqli_num_rows($resultado);
+
+                        if($filas){
+                            while($acta = $resultado->fetch_row()){
+                                if($acta[0]!=3){                                
+                                ?>
+                                    <h1>Titulo: <?php echo $acta[1]?></h1>
+                                    <h1>Titulo: <?php echo $acta[2]?></h1>
+                                    <h1>Titulo: <?php echo $acta[3]?></h1>
+                                <?php
+                                }
+                            }
+                        }
+
+                    ?>
+                </div>
             </div>
-          
+            
        
 
         </div>
