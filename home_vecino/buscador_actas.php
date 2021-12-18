@@ -20,6 +20,7 @@ session_start();
 </head>
 
 <body>
+
     <?php $hoy = date("Y-m-d"); ?>
     <div class="w-100 color-oscuro" style="height:100vh;">
         <nav class="navbar navbar-expand-sm navbar-dark bg p-3 color-claro">
@@ -49,8 +50,10 @@ session_start();
             </div>
         </nav>
         <?php include_once("../conexion_bd/conexion.php") ?>
+
         <div class="w-100 color-oscuro" style="min-height:400px">
             <h1 class="text-white text-center tw-text-3xl">Buscador de actas</h1>
+
             <form class=" w-100 m-auto" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>">
                 <div class="contenedor-form">
                     <label class="ms-1 w-25" for="tema">Tema: </label>
@@ -144,11 +147,13 @@ session_start();
 
 
                                             </div>
+
                                             <div class="tw-flex tw-justify-between mt-3 tw-item-center">
+
                                                 <div>
                                                     <a href="../actas/views/informacion-acta.php?codigo_acta=<?php echo $acta['0'] ?>" class="tw-inline-flex tw-mt-6 tw-font-semibold tw-text-blue-600 hover:tw-text-blue-400">
                                                         <span>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-6 tw-w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                             </svg>
                                                         </span>
