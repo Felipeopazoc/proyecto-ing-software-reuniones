@@ -91,7 +91,7 @@ session_start();
 		<input class="hidden" type="checkbox" id="menu-toggle" />
 
 		<div class="hidden lg:flex-1 lg:flex lg:items-center lg:w-auto w-full text-white" id="menu">
-		<nav>
+			<nav>
 				<ul class="lg:flex items-center justify-between text-base pt-4 lg:pt-0">
 					<li>
 						<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="../../home_directiva/index.php">Inicio</a>

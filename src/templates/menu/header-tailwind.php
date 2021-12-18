@@ -15,10 +15,10 @@
 
 <body>
 	<?php
-	include_once("../../paths.php");
 
-	echo $_SESSION['rol'];
-	if ($_SESSION['rol'] == "directiva") { ?>
+
+
+	if ($_SESSION['rol'] == "delegado" || $_SESSION['rol'] == "presidente" || $_SESSION['rol'] == "directiva") { ?>
 		<header style="background:#141A32" class="lg:px-16 px-6 flex flex-wrap lg:flex-row-reverse items-center lg:py-6 py-6">
 			<div class="flex-1 lg:flex-initial flex justify-between items-center">
 				<a class="bg-red-500 px-4 py-2 rounded-md text-white" href="<?php echo "SAD" ?>"> Cerrar Sesión </a>
