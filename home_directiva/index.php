@@ -15,7 +15,10 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
-<?php include_once("../conexion_bd/conexion.php")?>
+<?php 
+    include_once("../conexion_bd/conexion.php");
+    $hoy = date("Y-m-d");
+?>
 <body>
     <div class="w-100">
     <nav class="navbar navbar-expand-sm navbar-dark color-claro bg p-3">
@@ -46,12 +49,12 @@ session_start();
             <form class="form" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>">
                 <div class="contenedor-form">
                     
-                    <label class="w-25" for="tema">Tema: </label>
-                    <input class="form-control h-25" placeholder="Ingrese tema: " type="text" name="tema">
+                    <label class="w-25" for="tema">Título: </label>
+                    <input class="form-control h-25" placeholder="Ingrese título: " type="text" name="tema">
                     <label class="" for="fecha">Desde: </label>
-                    <input class="form-control  h-25 " type="date" name="desde">
+                    <input class="form-control  h-25 " type="date" name="desde" max="<?php echo $hoy; ?>" required>
                     <label class="" for="fecha">Hasta: </label>
-                    <input class="form-control h-25 " type="date" name="hasta">
+                    <input class="form-control h-25 " max="<?php echo $hoy ?>" value="<?php echo $hoy;?>" type="date" name="hasta">
                     <button type="submit" name="submit" class="ms-2 submit btn btn-primary">Buscar</button>
                 </div>
             </form>
@@ -69,7 +72,7 @@ session_start();
                   $desde = $_POST["desde"];
                   $hasta = $_POST["hasta"];
                   
-                  $sql = "select * from reunion where reu_tema like '%$tema%' and reu_fecha between '$desde' and '$hasta'";
+                  $sql = "select * from reunion where reu_titulo like '%$tema%' and reu_fecha between '$desde' and '$hasta' order by reu_fecha desc";
                   $resultado = mysqli_query($conn,$sql);
                   $filas = mysqli_num_rows($resultado);
                   if($filas){
