@@ -50,47 +50,32 @@ session_start();
 
 
 
-	<!-- component -->
-	<!-- follow me on twitter @asad_codes -->
 
-	<style>
-		#menu-toggle:checked+#menu {
-			display: block;
-		}
-	</style>
-	<header style="background:#141A32" class="lg:px-16 px-6 flex flex-wrap lg:flex-row-reverse items-center lg:py-6 py-6">
-		<div class="flex-1 lg:flex-initial flex justify-between items-center">
-			<a class="bg-red-500 px-4 py-2 rounded-md text-white" href="../../login/backend/cerrar.php"> Cerrar Sesión </a>
-		</div>
-
-		<label for="menu-toggle" class="pointer-cursor lg:hidden block">
-			<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-				<title>menu</title>
-				<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-			</svg>
-		</label>
-		<input class="hidden" type="checkbox" id="menu-toggle" />
-
-		<div class="hidden lg:flex-1 lg:flex lg:items-center lg:w-auto w-full text-white" id="menu">
-			<nav>
-				<ul class="lg:flex items-center justify-between text-base pt-4 lg:pt-0">
-					<li>
-						<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="../../home_directiva/index.php">Inicio</a>
-					</li>
-					<li>
-						<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="../../reuniones/index.php">Agendar Reunion</a>
-					</li>
-					<li>
-						<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="../../home_directiva/buscador_actas.php">Registrar Acta</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+	<?php
+	include_once("../../paths.php");
+	require_once(TEMPLATES_PATH . "/menu/header-tailwind.php");
+	echo $_SESSION['rol']; ?>
 
 
 
 	<main class="flex flex-col h-screen max-w-4xl px-6 mx-auto">
+		<nav>
+			<a href="<?php if ($_SESSION['rol'] == 'vecino') {
+							echo $BASE_URL;
+							echo $VECINO_URL;
+							echo 'index.php';
+						} else {
+							echo $BASE_URL;
+							echo $DIRECTIVA_URL;
+							echo 'index.php';
+						} ?>" class="text-blue-500 font-semibold inline-flex">
+				<span>
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+					</svg>
+				</span>
+				Volver atrás</a>
+		</nav>
 
 
 		<section class="text-white sm:w-full">

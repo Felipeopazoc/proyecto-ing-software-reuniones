@@ -11,81 +11,52 @@ session_start();
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actas</title>
-  
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="../tailwind/tailwind.output.css">
-<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet" />
 
-      <script src="https://cdn.tailwindcss.com"></script>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-	<style>
-		body {
-			font-family: 'Inter', sans-serif;
-		}
-		.form-control {
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555555;
-  background-color: #ffffff;
-  background-image: none;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-}
-	</style>
-	
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555555;
+            background-color: #ffffff;
+            background-image: none;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        }
+    </style>
+
 
 </head>
 
 <body class="color-oscuro ">
     <div class="">
-        	<style>
-		#menu-toggle:checked+#menu {
-			display: block;
-		}
-	</style>
-	<header style="background:#141A32" class="lg:px-16 px-6 flex flex-wrap lg:flex-row-reverse items-center lg:py-6 py-6">
-		<div class="flex-1 lg:flex-initial flex justify-between items-center">
-			<a class="bg-red-500 px-4 py-2 rounded-md text-white" href="../login/backend/cerrar.php"> Cerrar Sesión </a>
-		</div>
 
-		<label for="menu-toggle" class="pointer-cursor lg:hidden block">
-			<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-				<title>menu</title>
-				<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-			</svg>
-		</label>
-		<input class="hidden" type="checkbox" id="menu-toggle" />
 
-		<div class="hidden lg:flex-1 lg:flex lg:items-center lg:w-auto w-full text-white" id="menu">
-			<nav>
-				<ul class="lg:flex items-center justify-between text-base pt-4 lg:pt-0">
-					<li>
-						<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="./index.php">Inicio</a>
-					</li>
-					<li>
-						<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="../reuniones/index.php">Agendar Reunion</a>
-					</li>
-					<li>
-						<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Registrar Acta</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+        <?php include_once("../conexion_bd/conexion.php");
+        include_once("../paths.php");
+        require_once(TEMPLATES_PATH . "/menu/header-tailwind.php"); ?>
 
-        <?php include_once("../conexion_bd/conexion.php") ?>
         <div class=" color-oscuro px-4 max-w-4xl mx-auto">
             <h1 class="text-center text-white text-4xl font-semibold">Buscador de actas</h1>
             <p class="text-white">Acá estan los resultados de las actas. Si tienes los permisos necesarios podrás crear un acta en la esquina inferior a la derecha.</p>
@@ -105,7 +76,7 @@ session_start();
 
                     </div>
                 </div>
-                <button type="submit" name="submit" class=" btn btn-primary mt-4">Buscar</button>
+                <button type="submit" name="submit" class=" btn btn-primary mt-4 bg-blue-500 px-4 py-2 text-white rounded-md">Buscar</button>
             </form>
             <div>
                 <?php
@@ -175,7 +146,7 @@ session_start();
                                                         </span>
                                                         Ver información</a>
                                                 </div>
-                                                <?php if ($_SESSION['rol']) { ?>
+                                                <?php if ($_SESSION['rol'] == 'directiva' || $_SESSION['rol'] == 'delegado') { ?>
 
                                                     <div>
                                                         <a href="../actas/views/editar-acta.php?codigo_acta=<?php echo $acta['0'] ?>" class="inline-flex mt-6 font-semibold text-blue-600 hover:text-blue-400">
@@ -188,9 +159,6 @@ session_start();
                                                     </div>
 
                                                 <?php } else if ($_SESSION['rol'] != 'directiva') {  ?>
-                                                    <div style="max-width:200px">
-                                                        <p class="text-xs">No manejos los permisos suficientes para modificar el acta.</p>
-                                                    </div>
                                                 <?php }
                                                 ?>
                                             </div>
