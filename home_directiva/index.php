@@ -124,7 +124,7 @@ session_start();
                 <?php
                     //Nos conectamos a la bd      
                      $conn2 = new mysqli($host,$username,$password,$dbname);
-                     $sql2 = "select * from reunion";
+                     $sql2 = "select * from reunion r, estados e where r.id_estado = e.id_estado";
                      
                      $resultado2 = mysqli_query($conn2,$sql2);
                      $contador = 0;
@@ -138,6 +138,17 @@ session_start();
                                 echo "<h4><svg xmlns='http://www.w3.org/2000/svg' class='icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'> <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' /><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z' /></svg>$reunion[5]</h4>";
                                 echo "<h4 class='h4'><svg xmlns='http://www.w3.org/2000/svg' class='icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'> <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' /></svg> $fecha</h4>";
                                 echo "<h5><svg xmlns='http://www.w3.org/2000/svg' class='icon' fill='none' viewBox='0 0 24 24' stroke='currentColor'> <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' /></svg> $reunion[4]</h5>";
+                               if($reunion[8]==5){
+                                    echo "<div class='w-25 d-flex align-items-center'>";
+                                    echo "<h4>Estado: </h4> <h4 class='alert-success ms-2 rounded pt-2 pb-2 ps-2 px-2'>$reunion[9]</h4>";
+                                    echo "</div>";
+                               }else{
+                                    echo "<div class='w-25 d-flex align-items-center'>";
+                                    echo "<h4>Estado: </h4> <h4 class='alert-danger ms-2 rounded pt-2 pb-2 ps-2 px-2'>$reunion[9]</h4>";
+                                    echo "</div>";
+                               }
+                               
+                                
                                 echo "<div class='contenedor-btn'>";
                                 echo "<button data-bs-toggle='collapse' class='mt-3 btn btn-primary' data-bs-target='#demo$contador'>Desplegar Comentarios</button>";
                                 echo "</div>";
