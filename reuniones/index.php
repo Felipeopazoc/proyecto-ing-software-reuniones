@@ -154,7 +154,7 @@
                               echo "<input type='hidden' name='id' value='$row[0]'>";
                               echo "<div class='form-group col-4 w-100 py-2'>";
                                   echo "<label>Título</label>";
-                                  echo "<input id='titulo' type='text' name='titulo' class='form-control' spellcheck='true' value='$row[1]'>";
+                                  echo "<input id='titulo' type='text' name='titulo' class='form-control' spellcheck='true' value='$row[1]' minlength='4' maxlength='60' title='Debe contener al menos una letra mayúscula y minúscula, y al menos 4 o más caracteres' pattern='(?=.*[a-z])(?=.*[A-Z]).{4,}' required>";
                               echo "</div>";
                               echo "<div class='form-group col-4 w-100 py-2'>";
                                   echo "<label>Temas a tratar</label>";
@@ -162,7 +162,7 @@
                               echo "</div>";
                               echo "<div class='form-group col-4 w-100 py-2'>";
                                   echo "<label>Lugar</label>";
-                                  echo "<input id='lugar' type='text' name='lugar' class='form-control' value='$row[5]' required>";
+                                  echo "<input id='lugar' type='text' name='lugar' class='form-control' value='$row[5]' minlength='4' maxlength='30' required title='Debe contener al menos una letra mayúscula y minúscula, y al menos 4 o más caracteres' pattern='(?=.*[a-z])(?=.*[A-Z]).{4,}' required>";
                               echo "</div>";
                               echo "<div class='form-group col-4 w-100 py-2'>";
                                 echo "<div class='form-group'>";
