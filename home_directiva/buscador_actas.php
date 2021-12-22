@@ -1,6 +1,7 @@
 <?php
 session_start();
-echo $_SESSION['rol']
+echo $_SESSION['rol'];
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -234,7 +235,7 @@ echo $_SESSION['rol']
                                                     </span>
                                                     Ver información</a>
                                             </div>
-                                            <?php if ($_SESSION['rol'] == 'directiva') { ?>
+                                            <?php if ($_SESSION['rol'] == 'directiva' || $_SESSION['rol'] == 'delegado') { ?>
 
                                                 <div>
                                                     <a href="../actas/views/editar-acta.php?codigo_acta=<?php echo $acta['0'] ?>" class="inline-flex mt-6 font-semibold text-blue-600 hover:text-blue-400">

@@ -90,12 +90,12 @@ session_start();
 					<a href="<?php if ($_SESSION['rol'] == 'vecino') {
 									echo $BASE_URL;
 									echo $VECINO_URL;
-									echo 'index.php';
+									echo 'buscador_actas.php';
 								} else {
 									echo $BASE_URL;
 									echo $DIRECTIVA_URL;
 									echo 'buscador_actas.php';
-								} ?>" class="text-blue-500 font-semibold inline-flex">
+								} ?>" class="text-blue-500 font-semibold inline-flex text-2xl">
 						<span>
 							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
@@ -157,7 +157,7 @@ session_start();
 										</label>
 
 										<div>
-											<select name="id_estado" class="block w-full mt-1 form-select">
+											<select id="estado" name="estado" class="block w-full mt-1 form-select">
 
 												<?php
 
@@ -193,7 +193,7 @@ session_start();
 													</svg>
 												</span>
 											</div>
-											<input required name="reu_fecha" type="date" value='<?php echo $acta_fecha ?>' class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
+											<input required name="reu_fecha" id="fecha" type="date" value='<?php echo $acta_fecha ?>' class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
 										</div>
 									</div>
 									<div class="col-span-12 md:col-span-6 md:mt-4">
@@ -208,7 +208,7 @@ session_start();
 													</svg>
 												</span>
 											</div>
-											<input name="hora_inicio" value="<?php echo $acta_hora_inicio ?>" type="time" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
+											<input name="hora_inicio" value="<?php echo $acta_hora_inicio ?>" type="time" id="hora_inicio" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
 										</div>
 									</div>
 									<div class="col-span-12 md:col-span-6 md:mt-4">
@@ -223,7 +223,7 @@ session_start();
 													</svg>
 												</span>
 											</div>
-											<input required name="hora_termino" type="time" value="<?php echo $acta_hora_termino ?>" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
+											<input required name="hora_termino" id="hora_termino" type="time" value="<?php echo $acta_hora_termino ?>" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
 										</div>
 									</div>
 									<div class="col-span-12 md:mt-4 md:col-span-12">
@@ -233,7 +233,7 @@ session_start();
 										<div class="relative flex flex-wrap items-stretch w-full mt-1 mb-4 ">
 
 
-											<textarea class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" name="tema" id="tema_input" value="<?php echo $acta_tema ?>" cols="5" rows="1"><?php echo $acta_tema ?></textarea>
+											<textarea id="tema" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" name="tema" id="tema_input" value="<?php echo $acta_tema ?>" cols="5" rows="1"><?php echo $acta_tema ?></textarea>
 										</div>
 									</div>
 									<div class="col-span-12 md:mt-4 md:col-span-12">
@@ -243,7 +243,7 @@ session_start();
 										<div class="relative flex flex-wrap items-stretch w-full mt-1 mb-4 ">
 
 
-											<textarea class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" id="mytextarea" name="reu_descripcion" id="" cols="5" value="<?php echo $acta_descripcion ?>" rows="5"><?php echo $acta_descripcion ?></textarea>
+											<textarea class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" id="mytextarea" name="reu_descripcion" id="descripcion" cols="5" value="<?php echo $acta_descripcion ?>" rows="5"><?php echo $acta_descripcion ?></textarea>
 										</div>
 									</div>
 									<input class="hidden" name="reu_cod" value="<?php echo $codigo_reunion ?>" type="text">
@@ -252,8 +252,46 @@ session_start();
 
 
 								</div>
-								<div class="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
-									<button type="submit" name="submit" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+								<div class="hidden" id="modal-container">
+
+									<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+										<div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+											<div class="fixed inset-0 bg-gray-900 bg-opacity-80 transition-opacity" aria-hidden="true"></div>
+
+											<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+											<div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+												<div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+													<div class="sm:flex sm:items-start">
+														<div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+
+															<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+																<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+															</svg>
+														</div>
+														<div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+															<h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Resumen de información</h3>
+															<div class="mt-2">
+																<p class="text-sm text-gray-500">Un resumen de la información que editaste. ¿Estás seguro de que quieres enviar la información?</p>
+															</div>
+															<div id="modal-summary" class="space-y-4">
+
+															</div>
+
+														</div>
+													</div>
+												</div>
+												<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+													<button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-400 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" name="submit" type="submit" value="submit">Enviar</button>
+													<button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm" id="cancelar_boton">Cancelar</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class=" px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
+									<button id="send" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
 										Enviar
 									</button>
 
@@ -272,7 +310,68 @@ session_start();
 
 
 
+	<script>
+		function $(id) {
+			return document.getElementById(id);
+		}
 
+		const btn_send = $("send");
+		const btn_cancel = $("cancelar_boton");
+		btn_send.addEventListener("click", displaySummary);
+		btn_cancel.addEventListener("click", checkModal);
+
+
+		function checkModal(e) {
+			e.preventDefault();
+			const modal = $("modal-container");
+			if (modal.classList.contains("hidden")) {
+				modal.classList.remove("hidden");
+			} else {
+				modal.classList.add("hidden");
+			}
+		}
+
+		function displaySummary(e) {
+			e.preventDefault();
+			checkModal(e);
+			const form = {
+				estado: $("estado").options[$("estado").selectedIndex].text,
+				fecha: $("fecha").value,
+				hora_inicio: $("hora_inicio").value,
+				hora_termino: $("hora_termino").value,
+				tema: $('tema').value,
+			}
+
+			const modal_summary = $('modal-summary');
+			modal_summary.innerHTML = ` <div>
+                <h1 class="text-gray-800 font-medium">Estado</h1>
+                <p class="text-sm text-gray-500">${form.estado}</p>
+              </div>
+              <div>
+                <h1 class="text-gray-800 font-medium">Fecha</h1>
+                <p class="text-sm text-gray-500">${form.fecha}</p>
+              </div>
+			  <div>
+                <h1 class="text-gray-800 font-medium">Hora Inicio</h1>
+                <p class="text-sm text-gray-500">${form.hora_inicio}</p>
+              </div>
+			  <div>
+                <h1 class="text-gray-800 font-medium">Hora Termino</h1>
+                <p class="text-sm text-gray-500">${form.hora_termino}</p>
+              </div>
+			  <div>
+                <h1 class="text-gray-800 font-medium">Tema</h1>
+                <p class="text-sm text-gray-500">${form.tema}</p>
+              </div>
+			    <div>
+                <h1 class="text-gray-800 font-medium">Descripcion</h1>
+                <p class="text-sm text-gray-500">${tinyMCE.get('mytextarea').getContent()}</p>
+              </div>
+			   `;
+
+
+		}
+	</script>
 
 </body>
 
