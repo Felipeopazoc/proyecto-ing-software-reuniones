@@ -32,6 +32,9 @@ session_start();
               <li class="nav-item">
                 <a class="links" href="../registrar_comentario/index.php">Comentar Reuniones</a>
               </li>
+              <li class="nav-item">
+                <a class="links" href="../home_vecino/buscador_actas.php">Actas</a>
+              </li>
              
             </ul>
           </div>
