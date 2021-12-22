@@ -170,11 +170,11 @@
                                     echo "<div style='width: 25%;' class='align-items-center align-self-center ps-0'>";
                                       echo "<label>Fecha</label>";
                                       $hoy = date("Y-m-d");
-                                      echo "<input id='fecha' type='date' name='fecha' class='w-100 mb-2 form-control' min=".$hoy." value='$row[3]'>";
+                                      echo "<input id='fecha' type='date' name='fecha' class='w-100 mb-2 form-control' min=".$hoy." value='$row[3]' required>";
                                     echo "</div>";
                                     echo "<div style='width: 25%;' class='align-items-center align-self-center px-0'>";
                                       echo "<label>Hora</label>";
-                                      echo "<input id='hora' type='time' name='hora' class='w-100 mb-2 form-control' value='$row[4]'>";
+                                      echo "<input id='hora' type='time' name='hora' class='w-100 mb-2 form-control' value='$row[4]' min='08:00' max='23:00' required>";
                                     echo "</div>";
                                     echo "<div style='width: 25%;' class='align-items-center align-self-center pe-0 mb-2'>";
                                       echo "<label>Estado</label>";
