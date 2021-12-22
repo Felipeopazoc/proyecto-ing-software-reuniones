@@ -68,11 +68,11 @@ session_start();
                     </div>
                     <div class="col-span-12 lg:col-span-4">
                         <label class="font-semibold text-white " for="fecha">Desde: </label>
-                        <input class="form-control" type="date" name="desde">
+                        <input class="form-control" type="date" name="desde" max="<?php echo $hoy ?>" required>
                     </div>
                     <div class="col-span-12 lg:col-span-4">
                         <label class="font-semibold text-white " for="fecha">Hasta: </label>
-                        <input class="form-control " type="date" name="hasta">
+                        <input class="form-control " type="date" name="hasta" value="<?php echo $hoy ?>" max="<?php echo $hoy ?>">
 
                     </div>
                 </div>
@@ -92,7 +92,7 @@ session_start();
                     if ($filas) {
                 ?>
 
-                        <p class="m-auto text-center alert alert-success w-50">Se han encontrado resultados</p>
+                        <p class="w-full text-white py-4 text-green-800 max-w-md mx-auto text-center alert alert-success rounded-md" style="background:#d1e7dd">Se han encontrado resultados</p>
                         <?php
 
                         echo "<h1 class='mt-2 text-center text-white'>Resultados de búsqueda</h1>";
@@ -170,7 +170,7 @@ session_start();
                         }
                     } else {
                         ?>
-                        <p class="m-auto text-center alert alert-danger w-50">No se encontraron resultados</p>
+                        <p class="w-full text-white py-4 bg-red-500 mx-auto max-w-md mx-auto text-center alert alert-success rounded-md">No se encontraron resultados</p>
                 <?php
                     }
                     mysqli_free_result($resultado);

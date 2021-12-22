@@ -76,7 +76,7 @@ session_start();
 	<?php
 	include_once("../../paths.php");
 	require_once(TEMPLATES_PATH . "/menu/header-tailwind.php");
-	echo $_SESSION['rol']; ?>?
+	?>
 
 
 

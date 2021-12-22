@@ -54,7 +54,7 @@ session_start();
 	<?php
 	include_once("../../paths.php");
 	require_once(TEMPLATES_PATH . "/menu/header-tailwind.php");
-	echo $_SESSION['rol']; ?>
+	?>
 
 
 
@@ -63,11 +63,11 @@ session_start();
 			<a href="<?php if ($_SESSION['rol'] == 'vecino') {
 							echo $BASE_URL;
 							echo $VECINO_URL;
-							echo 'index.php';
+							echo 'buscador_actas.php';
 						} else {
 							echo $BASE_URL;
 							echo $DIRECTIVA_URL;
-							echo 'index.php';
+							echo 'buscador_actas.php';
 						} ?>" class="text-blue-500 font-semibold inline-flex">
 				<span>
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

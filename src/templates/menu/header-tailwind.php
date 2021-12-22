@@ -36,10 +36,11 @@
 				<nav>
 					<ul class="lg:flex items-center justify-between text-base pt-4 lg:pt-0">
 						<li>
-							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="./index.php">Inicio</a>
+							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="<?php echo $BASE_URL;
+																															echo $DIRECTIVA_URL ?>index.php">Inicio</a>
 						</li>
 						<li>
-							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="../reuniones/index.php">Agendar Reunion</a>
+							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="<?php echo $BASE_URL; ?>reuniones/index.php">Agendar Reunion</a>
 						</li>
 						<li>
 							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Registrar Acta</a>
@@ -82,8 +83,10 @@
 																															echo $COMENTARIOS_URL ?>index.php">Comentar Reuniones</a>
 						</li>
 						<li>
-							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="#">Comentar Reuniones</a>
+							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="<?php echo $BASE_URL;
+																															echo $VECINO_URL ?>buscador_actas.php">Actas</a>
 						</li>
+
 					</ul>
 				</nav>
 			</div>

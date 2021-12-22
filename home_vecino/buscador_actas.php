@@ -79,21 +79,81 @@ session_start();
                 ?>
                         <p class="alert alert-success text-center w-50 m-auto mt-3">Se han encontrado resultados</p>
                         <?php
-                        echo "<div class='caja'>";
-                        echo "<h1 class='text-center  text-white'>Resultados de búsqueda</h1>";
+                        echo "<div class=''>";
 
                         while ($acta = $resultado->fetch_row()) {
 
-                            echo "<div class='contenedor-reuniones m-auto mt-3 text-white'>";
 
-                            echo "<h1 class='text-white h1'>Tema: $acta[1]</h1>";
-                            echo "<h1 class='text-white h2'>Fecha realizada: $acta[2]</h1>";
-                            echo "<h1 class='text-white h2'>Hora inicio: $acta[3]</h1>";
-                            echo "<h1 class='text-white h2'>Hora final: $acta[4]</h1>";
-                            echo "<p class='text-white'>Descripción:  $acta[5]</p>";
-                            echo "</div>";
+                            if ($acta['0'] != 0) {
+                        ?>
+
+                                <div class="tw-py-6">
+                                    <div class="tw-flex tw-flex-col tw-max-w-3xl tw-mx-auto tw-overflow-hidden tw-bg-white tw-rounded-lg tw-shadow-lg md:tw-flex-row">
+                                        <div class="tw-w-full tw-h-64 tw-bg-cover md:tw-h-auto md:tw-w-1/3" style="background-image: url('https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80')">
+                                        </div>
+                                        <div class="md:tw-w-2/3 tw-p-4 tw-flex tw-flex-col">
+                                            <h2 class="tw-text-2xl tw-font-bold tw-text-gray-900"><?php echo $acta['1']; ?></h2>
+                                            <p class="tw-text-gray-800"><span class="tw-text-gray-600">Descripcion: <?php echo $acta['5'] ?></span></p>
+                                            <div class="tw-flex tw-justify-between tw-mt-3 tw-item-center">
+                                                <div>
+                                                    <h2 class="tw-inline-flex tw-items-center tw-text-gray-700">
+                                                        <span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="tw-w-6 tw-h-6 tw-mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                            </svg>
+                                                        </span>
+
+                                                        <?php echo $acta['3'] ?> - <?php echo $acta['4'] ?>
+                                                    </h2>
+                                                </div>
+                                                <div>
+                                                    <h2 class="tw-inline-flex tw-items-center tw-text-gray-700 ">
+                                                        <span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="tw-w-6 tw-h-6 tw-mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                            </svg>
+                                                        </span>
+                                                        <?php echo $acta['2'] ?>
+
+                                                    </h2>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="tw-flex tw-justify-between mt-3 tw-item-center">
+
+                                                <div>
+                                                    <a href="../actas/views/informacion-acta.php?codigo_acta=<?php echo $acta['0'] ?>" class="tw-inline-flex tw-mt-6 tw-font-semibold tw-text-blue-600 hover:tw-text-blue-400">
+                                                        <span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-6 tw-w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                            </svg>
+                                                        </span>
+                                                        Ver información</a>
+                                                </div>
+                                                <?php if ($_SESSION['rol'] == 'directiva') { ?>
+
+                                                    <div>
+                                                        <a href="../actas/views/editar-acta.php?codigo_acta=<?php echo $acta['0'] ?>" class="tw-inline-flex tw-mt-6 tw-font-semibold tw-text-blue-600 hover:tw-text-blue-400">
+                                                            <span>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" class="tw-h-6 tw-w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                                </svg>
+                                                            </span>
+                                                            Editar acta</a>
+                                                    </div>
+
+                                                <?php } else if ($_SESSION['rol'] != 'directiva') {  ?>
+                                                <?php }
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php
+                            }
                         }
-                        echo "</div>";
                     } else {
                         ?>
                         <p class="alert alert-danger text-center w-50 m-auto mt-3">No se encontraron resultados</p>
