@@ -3,10 +3,10 @@
 try{
 
     //Credenciales para la conexion a phpmyadmin
-    $host = "localhost";
+    $host = "mysql.face.ubiobio.cl";
     $dbname= "6soft2021";
-    $username= "root";
-    $password = "";
+    $username= "g6soft";
+    $password = "g6isw2021";
  
     $conn = new mysqli($host,$username,$password,$dbname);
 
