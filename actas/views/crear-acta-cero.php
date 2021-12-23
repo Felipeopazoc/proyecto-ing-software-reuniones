@@ -109,7 +109,7 @@ session_start();
 										</label>
 
 										<div>
-											<select name="id_estado" class="block w-full mt-1 form-select">
+											<select name="reuniones" class="block w-full mt-1 form-select">
 												<option value selected disabled></option>
 												<?php
 
@@ -136,7 +136,7 @@ session_start();
 										</label>
 
 										<div>
-											<select name="id_estado" class="block w-full mt-1 form-select">
+											<select id="estado" name="estado" class="block w-full mt-1 form-select">
 												<option value selected disabled></option>
 												<?php
 
@@ -170,7 +170,7 @@ session_start();
 													</svg>
 												</span>
 											</div>
-											<input required name="reu_fecha" type="date" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
+											<input required id="fecha" name="fecha" type="date" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
 										</div>
 									</div>
 									<div class="col-span-12 md:col-span-6 md:mt-4">
@@ -185,7 +185,7 @@ session_start();
 													</svg>
 												</span>
 											</div>
-											<input name="hora_inicio" type="time" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
+											<input name="hora_inicio" id="hora_inicio" type="time" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
 										</div>
 									</div>
 									<div class="col-span-12 md:col-span-6 md:mt-4">
@@ -200,7 +200,7 @@ session_start();
 													</svg>
 												</span>
 											</div>
-											<input required name="hora_termino" type="time" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
+											<input id="hora_termino" required name="hora_termino" type="time" class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500 focus:ring-2" />
 										</div>
 									</div>
 									<div class="col-span-12 md:mt-4 md:col-span-12">
@@ -210,7 +210,7 @@ session_start();
 										<div class="relative flex flex-wrap items-stretch w-full mt-1 mb-4 ">
 
 
-											<textarea class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" name="tema" id="tema_input" cols="5" rows="1"></textarea>
+											<textarea class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" name="tema" id="tema" cols="5" rows="1"></textarea>
 										</div>
 									</div>
 									<div class="col-span-12 md:mt-4 md:col-span-12">
@@ -220,7 +220,7 @@ session_start();
 										<div class="relative flex flex-wrap items-stretch w-full mt-1 mb-4 ">
 
 
-											<textarea class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" id="mytextarea" name="reu_descripcion" id="" cols="5" rows="5"></textarea>
+											<textarea class="relative flex-1 flex-grow flex-shrink w-px px-3 py-2 leading-normal border border-gray-200 rounded rounded-l-none inputsRegistroUsuario border-grey-lighter focus:ring-blue-500" id="mytextarea" name="reu_descripcion" cols="5" rows="5"></textarea>
 										</div>
 									</div>
 									<input class="hidden" name="reu_cod" value="<?php echo $codigo_reunion ?>" type="text">
