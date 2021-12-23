@@ -115,8 +115,6 @@ session_start();
 			</div>
 
 			<?php
-
-
 			$consulta_estados = ("select * from estados");
 			$estado_actual = ("select * from reunion inner join estados using (id_estado);");
 			?>

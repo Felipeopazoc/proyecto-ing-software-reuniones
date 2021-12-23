@@ -13,14 +13,14 @@ if (isset($_POST["submit"])) {
 
     $estado = $_POST["estado"];
     $codigo_acta = $_POST["codigo_acta"];
-    $sql1 = "update acta set tema = '$tema' , fecha = '$reu_fecha' , hora_inicio = '$hora_inicio' , hora_termino = '$hora_termino' , estado = '$estado' , descripcion = '$descripcion' where codigo_acta = '$codigo_acta'";
 
+    $query = "update acta set tema = '$tema' , fecha = '$reu_fecha' , hora_inicio = '$hora_inicio' , hora_termino = '$hora_termino' , estado = '$estado' , descripcion = '$descripcion' where codigo_acta = '$codigo_acta'";
+    mysqli_query($conn, $query);
+    header("location:./exito-acta.php?codigo_acta=$codigo_acta");
     //$sql3 = $sql1 . $sql2;
     //echo $sql3;
     // $sql = "update acta set tema='$tema', fecha='$reu_fecha', hora_inicio ='$hora_inicio', hora_termino='$hora_termino', descripcion='$descrid_estado=$estado  where codigo_acta=$codigo_acta";
 
-    $conn->query($sql3);
-    header("location:./exito-acta.php?codigo_acta=$codigo_acta");
     // if ($conn->query($sql) === TRUE) {
     //     echo ("Envio exitoso");
     //     echo ("Prueba");
