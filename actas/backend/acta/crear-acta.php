@@ -25,7 +25,14 @@ if (isset($_POST["submit"])) {
     echo $codigo_acta;
 
     $sql = "insert into acta values(null,'$tema','$reu_fecha','$hora_inicio','$hora_termino','$descripcion', $estado)";
-    mysqli_query($conn, $sql);
+
+
+    $last_id = mysqli_insert_id($conn);
+    if(mysqli_query($conn, $sql);){}
+    else{
+        echo "Error al enviar el acta";
+    }
+    
     echo ("Envio exitoso");
     echo ("Prueba");
     header("location:../exito.php?codigo_acta=$codigo_acta&reu_cod=$reu_cod");

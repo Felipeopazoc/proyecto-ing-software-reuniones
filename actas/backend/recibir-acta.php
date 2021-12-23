@@ -16,12 +16,19 @@ if (isset($_POST["submit"])) {
 
     $sql = "update acta set  tema='$tema', fecha='$reu_fecha',hora_inicio ='$hora_inicio',hora_termino='$hora_termino',descripcion='$descripcion', id_estado=$estado  where codigo_acta=$codigo_acta";
 
-    $conn->query($sql);
+
     if ($conn->query($sql)) {
         echo ("Envio exitoso");
         echo ("Prueba");
         header("location:./exito-acta.php?codigo_acta=$codigo_acta");
     } else {
+        echo $tema;
+        echo $descripcion;
+        echo $reu_fecha;
+        echo $hora_inicio;
+        echo $hora_termino;
+        echo $estado;
+        echo $codigo_acta;
         echo "Error al enviar el acta";
     }
 }
