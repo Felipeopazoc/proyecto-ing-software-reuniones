@@ -76,10 +76,7 @@
 							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="<?php echo $BASE_URL;
 																															echo $VECINO_URL ?>index.php">Inicio</a>
 						</li>
-						<li>
-							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="<?php echo $BASE_URL;
-																															echo $REUNIONES_URL ?>index.php">Reuniones</a>
-						</li>
+
 						<li>
 							<a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="<?php echo $BASE_URL;
 																															echo $COMENTARIOS_URL ?>index.php">Comentar Reuniones</a>
