@@ -22,6 +22,6 @@ if (isset($_POST["submit"])) {
         echo ("Prueba");
         header("location:./exito-acta.php?codigo_acta=$codigo_acta");
     } else {
-        echo "algo esta mal";
+        echo "Error al enviar el acta";
     }
 }

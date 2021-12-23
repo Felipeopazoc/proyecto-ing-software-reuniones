@@ -1,6 +1,11 @@
 <?php
 session_start();
-
+function verfecha($vfecha)
+{
+    $fch = explode("-", $vfecha);
+    $tfecha = $fch[2] . "-" . $fch[1] . "-" . $fch[0];
+    return $tfecha;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -84,7 +89,7 @@ session_start();
                         while ($acta = $resultado->fetch_row()) {
 
 
-                            if ($acta['0'] != 0) {
+                            if ($acta['0'] != 0 || $acta['0'] != 3) {
                         ?>
 
                                 <div class="tw-py-6">
@@ -113,7 +118,9 @@ session_start();
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                                             </svg>
                                                         </span>
-                                                        <?php echo $acta['2'] ?>
+                                                        <?php
+                                                        $fecha = verfecha($acta['2']);
+                                                        echo $fecha;  ?>
 
                                                     </h2>
                                                 </div>
@@ -200,7 +207,9 @@ session_start();
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                                             </svg>
                                                         </span>
-                                                        <?php echo $acta['2'] ?>
+                                                        <?php
+                                                        $fecha = verfecha($acta['2']);
+                                                        echo $fecha;  ?>
 
                                                     </h2>
                                                 </div>

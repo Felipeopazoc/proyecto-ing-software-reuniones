@@ -56,7 +56,7 @@ session_start();
 				</span>
 				<h1 class="text-3xl  font-semibold">Envio exitoso</h1>
 				<p>Has modificado exitosamente el acta.</p>
-				<?php if ($_SESSION['rol'] == 'directiva' || $_SESSION['rol'] == 'delegado') { ?>
+				<?php if ($_SESSION['rol'] == 'directiva' || $_SESSION['rol'] == 'delegado' || $_SESSION['rol'] == 'presidente') { ?>
 					<a href="<?php echo $BASE_URL;
 								echo $DIRECTIVA_URL ?>buscador_actas.php" class="text-blue-600 font-semibold mt-6 inline-block hover:text-blue-400">Volver atrás</a>
 				<?php } else {  ?>

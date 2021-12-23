@@ -1,7 +1,12 @@
 <?php
 session_start();
 echo $_SESSION['rol'];
-
+function verfecha($vfecha)
+{
+    $fch = explode("-", $vfecha);
+    $tfecha = $fch[2] . "-" . $fch[1] . "-" . $fch[0];
+    return $tfecha;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -129,7 +134,9 @@ echo $_SESSION['rol'];
                                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                                             </svg>
                                                         </span>
-                                                        <?php echo $acta['2'] ?>
+                                                        <?php
+                                                        $fecha = verfecha($acta['2']);
+                                                        echo $fecha;  ?>
 
                                                     </h2>
                                                 </div>
@@ -216,7 +223,9 @@ echo $_SESSION['rol'];
                                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                                         </svg>
                                                     </span>
-                                                    <?php echo $acta['2'] ?>
+                                                    <?php
+                                                    $fecha = verfecha($acta['2']);
+                                                    echo $fecha;  ?>
 
                                                 </h2>
                                             </div>
