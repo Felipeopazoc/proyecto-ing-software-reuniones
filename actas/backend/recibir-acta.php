@@ -14,6 +14,8 @@ if (isset($_POST["submit"])) {
     $estado = $_POST["id_estado"];
     $codigo_acta = $_POST["codigo_acta"];
 
+    echo $codigo_acta;
+    echo $descripcion;
 
     $sql = "update acta set  tema='$tema', fecha='$reu_fecha',hora_inicio ='$hora_inicio',hora_termino='$hora_termino',descripcion='$descripcion', id_estado=$estado  where codigo_acta=$codigo_acta";
 

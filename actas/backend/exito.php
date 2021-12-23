@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +23,12 @@
 
 </head>
 
-<body class="antialiased  bg-gray-200">
+<body class="antialiased  min-h-screen" style="background-color: #080F28">
 
 	<?php
 	include_once('../../conexion_bd/conexion.php');
+	include_once("../../paths.php");
+	require_once(TEMPLATES_PATH . "/menu/header-tailwind.php");
 
 	if ($_GET['codigo_acta']) {
 
