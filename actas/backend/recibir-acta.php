@@ -11,16 +11,17 @@ if (isset($_POST["submit"])) {
     $hora_inicio = $_POST["hora_inicio"];
     $hora_termino = $_POST['hora_termino'];
 
-    $estado = $_POST["id_estado"];
+    $estado = $_POST["estado"];
     $codigo_acta = $_POST["codigo_acta"];
-
-    echo $codigo_acta;
-    echo $descripcion;
 
     $sql = "update acta set  tema='$tema', fecha='$reu_fecha',hora_inicio ='$hora_inicio',hora_termino='$hora_termino',descripcion='$descripcion', id_estado=$estado  where codigo_acta=$codigo_acta";
 
     $conn->query($sql);
-    echo ("Envio exitoso");
-    echo ("Prueba");
-    header("location:./exito-acta.php?codigo_acta=$codigo_acta");
+    if ($conn->query($sql)) {
+        echo ("Envio exitoso");
+        echo ("Prueba");
+        header("location:./exito-acta.php?codigo_acta=$codigo_acta");
+    } else {
+        echo "algo esta mal";
+    }
 }

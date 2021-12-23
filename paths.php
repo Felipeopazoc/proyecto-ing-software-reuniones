@@ -1,8 +1,8 @@
 <?php
 
 
-//$BASE_URL = "http://localhost/proyecto-ing-software-reuniones/";
-$BASE_URL = "http://146.83.194.142:1067/proyecto-ing-software-reuniones/";
+$BASE_URL = "http://localhost/proyecto-ing-software-reuniones/";
+//$BASE_URL = "http://146.83.194.142:1067/proyecto-ing-software-reuniones/";
 $LOGIN_URL = "login/backend/";
 $REUNIONES_URL = "listado_reuniones/";
 $COMENTARIOS_URL = "registrar_comentario/";
