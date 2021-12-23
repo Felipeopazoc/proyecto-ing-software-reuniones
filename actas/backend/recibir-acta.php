@@ -15,9 +15,9 @@ if (isset($_POST["submit"])) {
     $codigo_acta = $_POST["codigo_acta"];
 
     $sql = "update acta set  tema='$tema', fecha='$reu_fecha',hora_inicio ='$hora_inicio',hora_termino='$hora_termino',descripcion='$descripcion', id_estado=$estado  where codigo_acta=$codigo_acta";
+    $conn->query($sql);
 
-
-    if (mysqli_query($conn, $sql)) {
+    if ($conn->query($sql) === TRUE) {
         echo ("Envio exitoso");
         echo ("Prueba");
         header("location:./exito-acta.php?codigo_acta=$codigo_acta");
